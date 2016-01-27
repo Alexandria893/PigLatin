@@ -12,22 +12,26 @@ public void setup()
 }
 public void draw()
 {
-  fill(255,0,0);
+  fill(0,255,0);
   ellipse(25,25,10,10);
   ellipse(75,25,10,10);
   line(25,50,75,50);
+  line(25,50,50,75);
+  line(75,50,50,75);
 
 }
 //precondition: sWord is a valid String of length greater than 0.
 //postcondition: returns the position of the first vowel in sWord.  If there are no vowels, returns -1
 public int findFirstVowel(String sWord)
 {
-for (int i=0; i<sWord.length(); i++)
+for (i=0; i<sWord.length(); i++)
   {
-    if(sWord.substring(i,i+1).equals("a")|| sWord.substring(i,i+1).equals("e")|| 
-    sWord.substring(i,i+1).equals("i")||sWord.substring(i,i+1).equals("o")|| 
-    sWord.substring(i,i+1).equals("u"))
-    	return i;
+    if(sWord.substring(i,i+1).equals("a")|| 
+    	sWord.substring(i,i+1).equals("e")|| 
+    	sWord.substring(i,i+1).equals("i")||
+    	sWord.substring(i,i+1).equals("o")|| 
+    	sWord.substring(i,i+1).equals("u"))
+    		return i;
   }
  
   return -1;
@@ -39,7 +43,7 @@ public String pigLatin(String sWord)
 {
 
 	//if word starts with vowel
-	if(findFirstVowel(sWord) ==0)
+	if(findFirstVowel(sWord) == 0)
 	{	
     	return sWord + "way";
     }
@@ -49,18 +53,14 @@ public String pigLatin(String sWord)
     	return sWord.substring(2,sWord.length())+"qu"+"ay";
     }	
 	//if word has all constants
-	if(findFirstVowel(sWord) ==-1)
+	if(findFirstVowel(sWord) == -1)
 	{
 		return sWord + "ay";
 	}
 	 //if word does not start with vowel and i finds vowel, return vowel plus end and add 
 	//consants to end plus ay
-	if(findFirstVowel(sWord)==i)
-    {
-    	return sWord.substring(i,i+sWord.length())+sWord.substring(0,i)+"ay";
-    }	
 	else
-	{
-		return "ERROR!";
-	}
+    {
+    	return sWord.substring(i) +sWord.substring(0,i)+"ay";
+    }	
 }
